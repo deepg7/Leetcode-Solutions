@@ -5,8 +5,10 @@ public:
         int sum = 0;
         for (auto it:nums){
             sum+=it;
-            Max=max(Max,sum);
-            sum=max(0,sum);
+            if(sum>Max)Max=sum;
+            if(sum<0)sum=0;
+            // Max=max(Max,sum);
+            // sum=max(0,sum);
         }
         return Max;
     }
