@@ -7,8 +7,6 @@ public:
             sum+=it;
             if(sum>Max)Max=sum;
             if(sum<0)sum=0;
-            // Max=max(Max,sum);
-            // sum=max(0,sum);
         }
         return Max;
     }
