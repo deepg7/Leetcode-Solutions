@@ -1,7 +1,19 @@
 class Solution {
 public:
     int fib(int n) {
-        if(n <= 1) return n;
-        return fib(n-1)+fib(n-2);
+        int x = 0;
+        int y = 1;
+        
+        if(n==0 || n==1){
+            return n;
+            
+        }
+        
+        while(n!=0){
+            x+=y;
+            y=abs(y-x);
+            n--;
+        }
+        return x;
     }
 };
