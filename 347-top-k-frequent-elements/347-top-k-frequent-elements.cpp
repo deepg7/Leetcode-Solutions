@@ -1,22 +1,24 @@
 class Solution {
 public:
-        vector<int> topKFrequent(vector<int>& nums, int k) {
-    unordered_map<int,int>m;
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int,int> seen;
         for(int i=0;i<nums.size();i++){
-            m[nums[i]]++;   //calculating frequency
+            seen[nums[i]]++;
         }
-    unordered_map<int,int>::iterator it=m.begin();
-    priority_queue<pair<int,int>>pq;
-        for(;it!=m.end();it++){
-            pq.push(make_pair(it->second,it->first));   //pushing pair of <frequency,distinct element of nums array> so that we get most occuring element on top
+        vector<int> vt;
+        priority_queue<pair<int,int>> pq;
+        for(auto i:seen){
+            pair<int,int> p;
+            p.first=i.second;
+            p.second=i.first;
+            pq.push(p);
         }
-        vector<int>ans;
-        int a=0;
-        while(a<k){
-            ans.push_back(pq.top().second);
-            pq.pop();       //popping k top most elements, inserting in our answer vector and returning the answer.
-            a++;
+        while(k--){
+            pair<int,int> temp = pq.top();
+            pq.pop();
+            vt.push_back(temp.second);
         }
-        return ans;
+        
+        return vt;
     }
 };
