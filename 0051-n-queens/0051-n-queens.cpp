@@ -4,6 +4,7 @@ public:
         int dr = row;
         int dc = col;
         
+        //check diagonally upward to left
         while(row>=0 && col>=0){
             if(board[row][col]=='Q'){
                 return false;
@@ -14,15 +15,17 @@ public:
         row=dr;
         col=dc;
         
+        //check to left same row
         while(col>=0){
             if(board[row][col]=='Q'){
                 return false;
             }
             col--;
         }
-        
         row=dr;
         col=dc;
+        
+        //check diagonally downword left
         while(row<n && col>=0){
             if(board[row][col]=='Q'){
                 return false;
