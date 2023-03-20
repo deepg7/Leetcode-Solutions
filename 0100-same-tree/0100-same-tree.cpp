@@ -1,16 +1,10 @@
 class Solution {
     bool check(TreeNode* p , TreeNode*q) {
-        if(p == NULL && q == NULL) {
-            return true;
-        }
-        
-        if(p == NULL || q == NULL) {
-            return false;
-        }
+        if(p == NULL || q == NULL) return p==q;
         
         bool left = check(p->left , q->left);
         bool right = check(p->right , q->right);
-        bool valueCheck = p->val == q->val ? true : false;
+        bool valueCheck = p->val == q->val ;
         
         
         return left && right && valueCheck;
